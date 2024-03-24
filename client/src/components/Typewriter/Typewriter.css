@@ -1,0 +1,26 @@
+.typewriter-container {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(0, -50%);
+  min-height: 18em;
+}
+
+.display-text {
+}
+
+.blinking-cursor {
+  position: absolute;
+  color: brown;
+  animation: blink 1s step-end infinite;
+  transform: translate(0,-7%);
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
