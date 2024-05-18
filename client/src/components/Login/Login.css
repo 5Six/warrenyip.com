@@ -1,0 +1,10 @@
+.login-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-button {
+  margin-top: 45vh;
+  margin-bottom: 45vh;
+}

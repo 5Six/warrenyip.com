@@ -1,0 +1,30 @@
+.contact {
+  background-color: rgb(16,16,16);
+  margin-top: 5vw;
+  margin-left: 5vw;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.contact ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.contact a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease-in;
+}
+
+.contact ul li:first-child a{
+  font-size: 24px;
+}
+
+.contact a:hover {
+  color: brown;
+}

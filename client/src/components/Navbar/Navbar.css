@@ -39,6 +39,20 @@
   padding-right:16px;
 }
 
+.nav-links button{
+  display:flex;
+  all: unset;
+  cursor: pointer;
+  height:100%;
+  transition: color 0.3s ease;
+  padding-left:16px;
+  padding-right:16px;
+}
+
 .nav-links a:hover {
+  color: brown;
+}
+
+.nav-links button:hover {
   color: brown;
 }
