@@ -2,7 +2,7 @@ import './Login.css'
 
 const Login = () => {
   const handleLogin = () => {
-    window.location.href = 'http://localhost:8000/api/auth/spotify';
+    window.location.href = 'http://localhost:8000/api/login/';
     console.log('hi');
   };
 
