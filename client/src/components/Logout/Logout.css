@@ -1,0 +1,10 @@
+.logout-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logout-button {
+  margin-top: 45vh;
+  margin-bottom: 45vh;
+}
