@@ -10,7 +10,11 @@ const MostPlayedSongs = () => {
   useEffect(() => {
     const fetchMostPlayedSong = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/get_most_played_song?token=${Cookies.get('spotify_token')}`);
+        const response = await axios.get(`http://localhost:8000/api/get_most_played_song`, {
+          headers: {
+            'Authorization': `Token ${Cookies.get('auth_token')}` 
+          }
+        });
         setTopTracks(response.data.items);
       } catch (error) {
         console.error('Error fetching the most played song:', error);
