@@ -25,12 +25,24 @@ const MostPlayedSongs = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Top 50 Played Songs</h2>
-        <ul>
+    <div className='top-songs-container'>
+      <h2>Top Tracks</h2>
+        <ul className='top-songs-list'>
           {topTracks && topTracks.map((track, index) => (
-            <li key={index}>
-              <strong>{track.name}</strong> - {track.artists[0].name}
+            <li className='top-song-list' key={index}>
+              <div className='top-song-container'>
+                <div className='top-song-image-container'>
+                  <img className='album-image' src={track.album.images[0].url}></img>
+                </div>
+                <div className='top-song-text-container'>
+                  <div className='top-song-name-container'>
+                    {index+1 + '. ' + track.name}
+                  </div>
+                  <div className='top-song-artist-container'>
+                    {track.artists[0].name}
+                  </div>
+                </div>
+              </div>
             </li>
           ))}
         </ul>

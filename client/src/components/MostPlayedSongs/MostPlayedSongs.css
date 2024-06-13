@@ -1,0 +1,44 @@
+.top-songs-container {
+  margin: auto;
+  width: 90%;
+}
+
+.top-song-container {
+  margin: 8px;
+}
+
+.top-songs-list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.album-image {
+  width: 128px;
+  height: auto;
+}
+
+.top-song-text-container {
+  min-height: 5em;
+}
+
+.top-song-name-container {
+  width:128px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  margin-bottom: 4px;
+}
+
+.top-song-artist-container {
+  font-size: 14px;
+  width:128px;
+  color: rgb(136,136,136);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+}
