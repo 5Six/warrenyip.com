@@ -16,8 +16,8 @@ const Logout = ({setIsLoggedIn}) => {
   };
 
   return (
-    <div className='login-button-container'>
-      <button className='login-button' onClick={handleLogout}>Logout</button>
+    <div className='logout-button-container'>
+      <button className='logout-button' onClick={handleLogout}>Logout</button>
     </div>
   )
 }

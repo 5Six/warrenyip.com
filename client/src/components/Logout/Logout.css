@@ -1,10 +1,19 @@
 .logout-button-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .logout-button {
-  margin-top: 45vh;
-  margin-bottom: 45vh;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  background: rgb(30,215,96);  /* Remove background */
+  border: none;      /* Remove border */
+  padding: 8px;        /* Remove padding */
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 20px;
+  color: inherit;    /* Inherit text color */
+  font: inherit;     /* Inherit font styling */
+  cursor: pointer;   /* Optional: show pointer cursor on hover */
 }

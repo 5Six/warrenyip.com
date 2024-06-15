@@ -1,0 +1,22 @@
+.audio-player-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  font: inherit;
+  background-color: rgb(30,215,96); /* Green */
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  margin: 8px;
+  cursor: pointer;
+  border-radius: 32px;
+  transition: background-color 0.3s;
+}
+
+button.playing {
+  background-color: #f44336; /* Red */
+}
