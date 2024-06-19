@@ -3,7 +3,7 @@ import Typewriter from "../../components/Typewriter";
 
 const Home = () => {
   return (
-    <Typewriter text='Stuff.'/>
+    <Typewriter text='Up dog.'/>
   )
 }
 

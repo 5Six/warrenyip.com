@@ -6,6 +6,7 @@ import Home from "./pages/Home"
 import NotFound from './pages/NotFound';
 import Statify from './pages/Statify';
 import Contact from './components/Contact';
+import Heardle from './pages/Heardle';
 
 function App() {
   const contactRef = useRef(null);
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="*" element={<NotFound/>}/>
           <Route path="/Statify" element={<Statify></Statify>}/>
+          <Route path="/Heardle" element={<Heardle></Heardle>}/>
         </Routes>
       </Router>
       <div ref={contactRef}>

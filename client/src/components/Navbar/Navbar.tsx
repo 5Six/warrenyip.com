@@ -21,8 +21,9 @@ const Navbar: React.FC<NavbarProps> = ({contactRef}) => {
         </div>
           <ul className="nav-links">
             <li><Link to="/">Home</Link></li>
-            <li><button>Projects</button></li>
+            {/*<li><button>Projects</button></li>*/}
             <li><Link to="/Statify">Statify</Link></li>
+            <li><Link to="/Heardle">Heardle</Link></li>
             <li><button onClick={scrollToContact}>Contact</button></li>
           </ul>
       </div>

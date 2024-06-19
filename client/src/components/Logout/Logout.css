@@ -5,8 +5,6 @@
 }
 
 .logout-button {
-  margin-top: 10vh;
-  margin-bottom: 5vh;
   background: rgb(30,215,96);  /* Remove background */
   border: none;      /* Remove border */
   padding: 8px;        /* Remove padding */
