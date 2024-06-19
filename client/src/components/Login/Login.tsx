@@ -2,7 +2,7 @@ import './Login.css';
 
 const Login = () => {
   const handleLogin = () => {
-    window.location.href = 'http://localhost:8000/api/login/';
+    window.location.href = `${import.meta.env.VITE_REACT_APP_API_URL}/login/`;
   };
 
   return (

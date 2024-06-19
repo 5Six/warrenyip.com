@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import './Heardle.css';
 import Login from '../../components/Login';
 import Logout from '../../components/Logout';
@@ -27,6 +29,9 @@ const Heardle = () => {
   const answerInputRef = useRef();
   const playlistInputRef = useRef();
   const location = useLocation();
+
+  const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+  const appUrl = import.meta.env.VITE_REACT_APP_URL;
 
   const playUntil = [1,2,4,8,16,30]
   const sidebarPlaylistData = [
@@ -84,7 +89,7 @@ const Heardle = () => {
       const fetchedImages = {};
       await Promise.all(sidebarPlaylistData.map(async (playlist) => {
         try {
-          const response = await axios.get(`http://localhost:8000/api/get_playlist/`, {
+          const response = await axios.get(`${apiUrl}/get_playlist/`, {
             params: { playlist_id: playlist.id },
             headers: { 'Authorization': `Token ${Cookies.get('auth_token')}` }
           });
@@ -105,7 +110,7 @@ const Heardle = () => {
   const handlePlayButton = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:8000/api/get_all_playlist_tracks?playlist_id=${query}`, {
+      const response = await axios.get(`${apiUrl}/get_all_playlist_tracks?playlist_id=${query}`, {
         headers: {
           'Authorization': `Token ${Cookies.get('auth_token')}` 
         }
@@ -140,7 +145,7 @@ const Heardle = () => {
     setAnswerInput(value)
     if (value.length > 0) {
       try {
-        const response = await axios.get(`http://localhost:8000/api/search`, {
+        const response = await axios.get(`${apiUrl}/search`, {
           params: {
             q: value,
             search_type: 'track',

@@ -1,7 +1,7 @@
 import "./Statify.css"
 import "../../components/Login"
 import Login from "../../components/Login"
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import MostPlayedSongs from "../../components/MostPlayedSongs";
 import Logout from "../../components/Logout";
 import Cookies from 'js-cookie';

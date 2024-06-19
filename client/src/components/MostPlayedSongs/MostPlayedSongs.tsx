@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import './MostPlayedSongs.css';
 
 import React, { useState, useEffect } from 'react';
@@ -11,7 +13,7 @@ const MostPlayedSongs = () => {
   useEffect(() => {
     const fetchMostPlayedSong = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/get_most_played_song`, {
+        const response = await axios.get(`${import.meta.env.VITE_REACT_APP_API_URL}/get_most_played_song`, {
           headers: {
             'Authorization': `Token ${Cookies.get('auth_token')}` 
           }
