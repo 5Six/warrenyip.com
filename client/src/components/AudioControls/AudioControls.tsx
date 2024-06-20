@@ -1,9 +1,9 @@
 // @ts-nocheck
 
-import { useState, useRef, forwardRef, useImperativeHandle } from 'react';
+import { useState, useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
 import './AudioControls.css';
 
-const AudioControls = forwardRef(({src}, ref) => {
+const AudioControls = forwardRef(({src, onTimeUpdate}, ref) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef();
   const [playUntil, setPlayUntil] = useState(0);
@@ -11,6 +11,23 @@ const AudioControls = forwardRef(({src}, ref) => {
   useImperativeHandle(ref, () => ({
     setPlayUntil: (n: number) => setPlayUntil(n)
   }))
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    const handleTimeUpdate = () => {
+      if (onTimeUpdate) {
+        onTimeUpdate(audio.currentTime, audio.duration);
+      }
+    };
+    if (audio) {
+      audio.addEventListener('timeupdate', handleTimeUpdate);
+    }
+    return () => {
+      if (audio) {
+        audio.removeEventListener('timeupdate', handleTimeUpdate);
+      }
+    };
+  }, [onTimeUpdate]);
 
   const handlePlayReset = () => {
     const audio = audioRef.current;

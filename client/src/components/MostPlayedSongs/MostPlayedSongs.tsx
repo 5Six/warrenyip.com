@@ -5,7 +5,6 @@ import './MostPlayedSongs.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import AudioControls from '../AudioControls';
 
 const MostPlayedSongs = () => {
   const [topTracks, setTopTracks] = useState([]);
@@ -44,7 +43,6 @@ const MostPlayedSongs = () => {
                   <div className='top-song-artist-container'>
                     {track.artists[0].name}
                   </div>
-                  <AudioControls src={track.preview_url}></AudioControls>
                 </div>
               </div>
             </li>

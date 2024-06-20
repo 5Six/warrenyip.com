@@ -24,6 +24,7 @@ const Heardle = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const [playlistImages, setPlaylistImages] = useState({});
+  const [progress, setProgress] = useState(0);
 
   const audioControlsRef = useRef();
   const answerInputRef = useRef();
@@ -175,6 +176,10 @@ const Heardle = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const handleTimeUpdate = (currentTime, duration) => {
+    setProgress((currentTime / duration) * 100);
+  };
+
   return (
     <div className='heardle-container'>
       {!isLoggedIn ? (
@@ -211,7 +216,20 @@ const Heardle = () => {
           {gameState === 'guess' &&
             <div>
               <div className='heardle-audio-controls-container'>
-                {answerUrl && <AudioControls ref={audioControlsRef} src={answerUrl}></AudioControls>}
+                {answerUrl && (
+                  <div>
+                    <div className='heardle-audio-progress-bar'>
+                      {playUntil.map((seconds) => (
+                        <div className='heardle-audio-progress-bar-indicators' style={{ left: `${(seconds / 30) * 100}%` }} key={seconds}>
+                          <div className="heardle-audio-progress-bar-arrow">▼</div>
+                          <div className="heardle-audio-progress-bar-number">{seconds}</div>
+                        </div>
+                      ))}
+                      <div className='heardle-audio-progress' style={{ width: `${progress}%` }}></div>
+                    </div>
+                    <AudioControls ref={audioControlsRef} src={answerUrl} onTimeUpdate={handleTimeUpdate}/>
+                  </div>
+                )}
               </div>
               {gameState === 'guess' && <div>{guessRemaining} guess remaining</div>}
               {guessRemaining > 0 && 
@@ -219,14 +237,16 @@ const Heardle = () => {
                 <input className='answer-input' ref={answerInputRef} type='text' placeholder='Type your answer here' onChange={(e)=>onAnswerInputChange(e)}></input>
                 <button onClick={handleSubmit}>{answerInput ? 'Submit' : 'Skip'}</button>
                 {searchResults.length > 0 && (
-                  <ul className='heardle-search-results'>
-                    {searchResults.map((track) => (
-                      <li className='heardle-search-result' key={track.id} onClick={() => handleSearchResultClick(track)}>
-                        <div className='heardle-search-result-name'>{track.name}</div>
-                        <div className='heardle-search-result-artist'>{track.artists[0].name}</div>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className='heardle-search-results-container'>
+                    <ul className='heardle-search-results'>
+                      {searchResults.map((track) => (
+                        <li className='heardle-search-result' key={track.id} onClick={() => handleSearchResultClick(track)}>
+                          <div className='heardle-search-result-name'>{track.name}</div>
+                          <div className='heardle-search-result-artist'>{track.artists[0].name}</div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
               </div>}
             </div>
